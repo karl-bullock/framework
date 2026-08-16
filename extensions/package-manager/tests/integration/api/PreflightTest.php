@@ -38,7 +38,7 @@ class PreflightTest extends TestCase
     {
         $this->setComposerConfig([
             'require' => [
-                'flarum/core' => '^0.1.0-beta.15',
+                'flarum/core' => '^1.8',
             ],
             'minimum-stability' => 'beta',
         ]);
@@ -56,10 +56,10 @@ class PreflightTest extends TestCase
     #[Test]
     public function reports_that_a_compatible_forum_would_upgrade()
     {
-        $this->makeDummyExtensionCompatibleWith('flarum/dummy-compatible-extension', '^0.1.0-beta.15 | ^1.0.0');
+        $this->makeDummyExtensionCompatibleWith('flarum/dummy-compatible-extension', '^1.8 | ^2.0');
         $this->setComposerConfig([
             'require' => [
-                'flarum/core' => '^0.1.0-beta.15',
+                'flarum/core' => '^1.8',
                 'flarum/dummy-compatible-extension' => '^1.0.0',
             ],
             'minimum-stability' => 'beta',
@@ -79,10 +79,10 @@ class PreflightTest extends TestCase
     #[Test]
     public function names_the_extension_that_blocks_the_upgrade()
     {
-        $this->makeDummyExtensionCompatibleWith('flarum/dummy-incompatible-extension', '>=0.1.0-beta.15 <=0.1.0-beta.16');
+        $this->makeDummyExtensionCompatibleWith('flarum/dummy-incompatible-extension', '^1.8');
         $this->setComposerConfig([
             'require' => [
-                'flarum/core' => '^0.1.0-beta.15',
+                'flarum/core' => '^1.8',
                 'flarum/dummy-incompatible-extension' => '^1.0.0',
             ],
             'minimum-stability' => 'beta',
@@ -102,10 +102,10 @@ class PreflightTest extends TestCase
     #[Test]
     public function changes_nothing()
     {
-        $this->makeDummyExtensionCompatibleWith('flarum/dummy-incompatible-extension', '>=0.1.0-beta.15 <=0.1.0-beta.16');
+        $this->makeDummyExtensionCompatibleWith('flarum/dummy-incompatible-extension', '^1.8');
         $config = [
             'require' => [
-                'flarum/core' => '^0.1.0-beta.15',
+                'flarum/core' => '^1.8',
                 'flarum/dummy-incompatible-extension' => '^1.0.0',
             ],
             'minimum-stability' => 'beta',
@@ -123,10 +123,10 @@ class PreflightTest extends TestCase
     #[Test]
     public function reports_whether_the_server_can_finish_the_job()
     {
-        $this->makeDummyExtensionCompatibleWith('flarum/dummy-compatible-extension', '^0.1.0-beta.15 | ^1.0.0');
+        $this->makeDummyExtensionCompatibleWith('flarum/dummy-compatible-extension', '^1.8 | ^2.0');
         $this->setComposerConfig([
             'require' => [
-                'flarum/core' => '^0.1.0-beta.15',
+                'flarum/core' => '^1.8',
                 'flarum/dummy-compatible-extension' => '^1.0.0',
             ],
             'minimum-stability' => 'beta',

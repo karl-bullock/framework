@@ -43,8 +43,12 @@ class SetupComposer
     {
         return array_merge([
             'require' => [
-                'flarum/core' => '1.0.0',
-                'flarum/tags' => '1.0.3',
+                // The last 1.8 release, which is what a forum upgrading to 2.x
+                // actually starts from. Older pins (this was 1.0.0) cannot be
+                // installed on supported PHP at all, and carry published
+                // security advisories that composer refuses by default.
+                'flarum/core' => '1.8.19',
+                'flarum/tags' => '^1.8',
                 'flarum/lang-english' => '*',
             ],
             'config' => [
