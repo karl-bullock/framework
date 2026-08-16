@@ -27,6 +27,7 @@ return [
         ->post('/extension-manager/why-not', 'extension-manager.why-not', Api\Controller\WhyNotController::class)
         ->post('/extension-manager/minor-update', 'extension-manager.minor-update', Api\Controller\MinorUpdateController::class)
         ->post('/extension-manager/major-update', 'extension-manager.major-update', Api\Controller\MajorUpdateController::class)
+        ->post('/extension-manager/preflight', 'extension-manager.preflight', Api\Controller\PreflightController::class)
         ->post('/extension-manager/global-update', 'extension-manager.global-update', Api\Controller\GlobalUpdateController::class)
         ->post('/extension-manager/composer', 'extension-manager.composer', Api\Controller\ConfigureComposerController::class),
 
